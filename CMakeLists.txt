@@ -137,3 +137,9 @@ add_dependencies(${PROJECT_NAME}_uart topic_example_generate_messages_cpp)
 target_link_libraries(${PROJECT_NAME}_uart
   ${catkin_LIBRARIES}
 )
+
+add_executable(${PROJECT_NAME}_uart_eqep src/topic_example_uart_eqep.cpp src/topic_example_uart_eqep.cpp src/uart.cpp src/eqep.cpp)
+add_dependencies(${PROJECT_NAME}_uart topic_example_generate_messages_cpp)
+target_link_libraries(${PROJECT_NAME}_uart_eqep
+  ${catkin_LIBRARIES}
+)

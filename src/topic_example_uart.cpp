@@ -4,7 +4,8 @@
 #include <iostream>
 #include <sstream>
 #include "uart.h"
-
+#include <cmath>
+#define PI 3.141592
 
 int main(int argc,char **argv){
 	ros::init(argc,argv,"topic_example_publisher");
@@ -26,7 +27,8 @@ int main(int argc,char **argv){
 		topic_example::myMessage msg;
 		msg.data=(float)count;
 		
-		uart1.write(count);
+		double tempVal=sin(count/1000.0*PI)*0.3;
+		uart1.write((float)tempVal);
 		
 		if(uart1.dataAvailable())
 		{
